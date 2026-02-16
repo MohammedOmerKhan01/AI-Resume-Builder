@@ -24,7 +24,9 @@ function PremiumLayout({ step, children }: Props) {
 
     updateState()
     const unsubscribe = projectStore.subscribe(updateState)
-    return unsubscribe
+    return () => {
+      unsubscribe()
+    }
   }, [step])
 
   useEffect(() => {
