@@ -1,0 +1,46 @@
+.navigation {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 16px 24px;
+}
+
+.nav-container {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  color: #666;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-link:hover {
+  color: #1a1a1a;
+}
+
+.nav-link.active {
+  color: #8B0000;
+  border-bottom-color: #8B0000;
+}

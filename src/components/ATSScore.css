@@ -1,0 +1,121 @@
+.ats-score {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.ats-score h3 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 18px;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.score-circle-container {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 24px;
+}
+
+.score-circle {
+  display: block;
+}
+
+.score-progress {
+  transition: stroke-dashoffset 0.5s ease, stroke 0.3s ease;
+}
+
+.score-progress.score-needs-work {
+  stroke: #dc2626;
+}
+
+.score-progress.score-getting-there {
+  stroke: #f59e0b;
+}
+
+.score-progress.score-strong {
+  stroke: #16a34a;
+}
+
+.score-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.score-value {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.score-value.score-needs-work {
+  color: #dc2626;
+}
+
+.score-value.score-getting-there {
+  color: #f59e0b;
+}
+
+.score-value.score-strong {
+  color: #16a34a;
+}
+
+.score-label {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.score-label.score-needs-work {
+  color: #dc2626;
+}
+
+.score-label.score-getting-there {
+  color: #f59e0b;
+}
+
+.score-label.score-strong {
+  color: #16a34a;
+}
+
+.suggestions {
+  padding-top: 16px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.suggestions h4 {
+  font-size: 14px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.suggestions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions li {
+  font-size: 13px;
+  color: #666;
+  padding: 6px 0;
+  line-height: 1.5;
+}
+
+.suggestions li:before {
+  content: '→ ';
+  color: #8B0000;
+  margin-right: 8px;
+  font-weight: bold;
+}

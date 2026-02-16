@@ -1,0 +1,42 @@
+.proof-page-new {
+  min-height: 100vh;
+  background: #F7F6F3;
+}
+
+.proof-container-new {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+.proof-container-new h1 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 42px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: 0.03em;
+}
+
+.proof-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.proof-placeholder {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 64px;
+  text-align: center;
+}
+
+.placeholder-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.proof-placeholder p {
+  font-size: 16px;
+  color: #666;
+}

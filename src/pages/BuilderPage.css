@@ -1,0 +1,166 @@
+.builder-page {
+  min-height: 100vh;
+  background: #F7F6F3;
+}
+
+.builder-container {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+}
+
+.builder-left {
+  flex: 1;
+  max-width: 600px;
+}
+
+.builder-right {
+  flex: 1;
+}
+
+.builder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.builder-header h1 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 32px;
+  color: #1a1a1a;
+}
+
+.load-sample-btn {
+  padding: 8px 16px;
+  background: #e5e5e5;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.load-sample-btn:hover {
+  background: #d5d5d5;
+}
+
+.form-section {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.form-section h2 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 18px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.form-section input,
+.form-section textarea {
+  width: 100%;
+  padding: 8px 16px;
+  background: #F7F6F3;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  color: #1a1a1a;
+  font-size: 14px;
+  margin-bottom: 8px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-section input:focus,
+.form-section textarea:focus {
+  outline: none;
+  border-color: #8B0000;
+}
+
+.form-section textarea {
+  resize: vertical;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  margin-bottom: 0;
+}
+
+.section-header button {
+  padding: 8px 16px;
+  background: #8B0000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.section-header button:hover {
+  background: #6d0000;
+}
+
+.entry-card {
+  background: #F7F6F3;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.entry-card input,
+.entry-card textarea {
+  background: #ffffff;
+}
+
+.date-row {
+  display: flex;
+  gap: 8px;
+}
+
+.remove-btn {
+  padding: 8px 16px;
+  background: #e5e5e5;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+
+.remove-btn:hover {
+  background: #d5d5d5;
+}
+
+.preview-sticky {
+  position: sticky;
+  top: 24px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.preview-sticky h3 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 18px;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}

@@ -1,0 +1,357 @@
+.resume-preview {
+  background: #ffffff;
+  padding: 40px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  min-height: 400px;
+  --accent-color: hsl(168, 60%, 40%);
+}
+
+.resume-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #666;
+  font-size: 14px;
+  text-align: center;
+}
+
+.resume-header {
+  text-align: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.resume-header h1 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 24px;
+  color: #1a1a1a;
+  margin-bottom: 8px;
+  letter-spacing: 0.02em;
+}
+
+.resume-contact {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #666;
+}
+
+.resume-section {
+  margin-bottom: 24px;
+}
+
+.resume-section h2 {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 14px;
+  color: var(--accent-color);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--accent-color);
+  padding-bottom: 4px;
+}
+
+.resume-summary {
+  color: #333;
+  margin-bottom: 0;
+}
+
+.resume-link {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.resume-entry {
+  margin-bottom: 16px;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.entry-header strong {
+  color: #1a1a1a;
+  font-size: 13px;
+}
+
+.entry-date {
+  font-size: 11px;
+  color: #666;
+}
+
+.entry-subheader {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.entry-description {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.entry-tech {
+  font-size: 11px;
+  color: #666;
+  margin-top: 4px;
+}
+
+.guidance-hint {
+  font-size: 11px;
+  color: #8B0000;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+/* Classic Template (default) */
+.template-classic .resume-header h1 {
+  font-size: 24px;
+  text-align: center;
+}
+
+.template-classic .resume-section h2 {
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+/* Modern Template - Two Column Layout */
+.template-modern {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  gap: 0;
+  padding: 0;
+}
+
+.template-modern .resume-sidebar {
+  background: var(--accent-color);
+  color: white;
+  padding: 40px 24px;
+}
+
+.template-modern .resume-main {
+  padding: 40px;
+}
+
+.template-modern .resume-header {
+  text-align: left;
+  border-bottom: none;
+  margin-bottom: 24px;
+}
+
+.template-modern .resume-header h1 {
+  font-size: 28px;
+  text-align: left;
+  color: white;
+}
+
+.template-modern .resume-sidebar .resume-contact {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.template-modern .resume-sidebar .resume-section h2 {
+  color: white;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  font-size: 13px;
+}
+
+.template-modern .resume-sidebar .skill-pill {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.template-modern .resume-main .resume-section h2 {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+  font-size: 16px;
+  text-transform: none;
+}
+
+/* Minimal Template */
+.template-minimal .resume-header {
+  border-bottom: none;
+  text-align: left;
+}
+
+.template-minimal .resume-header h1 {
+  font-size: 22px;
+  text-align: left;
+  font-weight: 400;
+}
+
+.template-minimal .resume-contact {
+  justify-content: flex-start;
+}
+
+.template-minimal .resume-section h2 {
+  text-transform: none;
+  border-bottom: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* Print Styles */
+@media print {
+  .resume-preview {
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0.5in !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .resume-header h1 {
+    color: #000 !important;
+  }
+
+  .resume-section h2 {
+    color: #000 !important;
+    border-bottom-color: #000 !important;
+  }
+
+  .entry-header strong,
+  .resume-summary,
+  .entry-description {
+    color: #000 !important;
+  }
+
+  .entry-date,
+  .entry-subheader,
+  .resume-contact,
+  .resume-link,
+  .entry-tech {
+    color: #333 !important;
+  }
+
+  .guidance-hint {
+    display: none !important;
+  }
+
+  /* Page break rules */
+  .resume-section {
+    page-break-inside: avoid;
+  }
+
+  .resume-entry {
+    page-break-inside: avoid;
+  }
+
+  .resume-header {
+    page-break-after: avoid;
+  }
+}
+
+@page {
+  margin: 0.5in;
+  size: letter;
+}
+
+/* Skills Section Styles */
+.skill-group {
+  margin-bottom: 12px;
+}
+
+.skill-group strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.skill-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skill-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #F7F6F3;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #333;
+}
+
+/* Project Card Styles */
+.project-card-preview {
+  border: 1px solid #eee;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  background: #fafafa;
+}
+
+.project-card-preview .entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-links {
+  display: flex;
+  gap: 8px;
+}
+
+.project-link {
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.tech-stack-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.tech-pill {
+  display: inline-block;
+  padding: 3px 8px;
+  background: var(--accent-color);
+  color: white;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+/* Print styles for new elements */
+@media print {
+  .skill-pill {
+    background: white !important;
+    border-color: #000 !important;
+    color: #000 !important;
+  }
+
+  .project-card-preview {
+    background: white !important;
+    border-color: #000 !important;
+  }
+
+  .tech-pill {
+    background: white !important;
+    color: #000 !important;
+    border: 1px solid #000 !important;
+  }
+
+  .project-link {
+    display: none !important;
+  }
+}

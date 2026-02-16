@@ -1,0 +1,141 @@
+.build-panel {
+  flex: 0 0 30%;
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 24px;
+  border: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: fit-content;
+  position: sticky;
+  top: 16px;
+}
+
+.build-panel h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.lovable-textarea {
+  background: #F7F6F3;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 16px;
+  color: #333;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 200px;
+  resize: vertical;
+  width: 100%;
+}
+
+.build-panel-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.build-panel button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.copy-button {
+  background: #8B0000;
+  color: white;
+}
+
+.copy-button:hover {
+  background: #6d0000;
+}
+
+.copy-button.copied {
+  background: #16a34a;
+}
+
+.lovable-button {
+  background: #8B0000;
+  color: white;
+}
+
+.lovable-button:hover {
+  background: #6d0000;
+}
+
+.result-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.result-button {
+  flex: 1;
+  padding: 8px;
+  font-size: 13px;
+}
+
+.result-button.worked {
+  background: #16a34a;
+  color: white;
+}
+
+.result-button.worked:hover {
+  background: #0f7a38;
+}
+
+.result-button.error {
+  background: #e5e5e5;
+  color: #333;
+}
+
+.result-button.error:hover {
+  background: #d5d5d5;
+}
+
+.result-button.screenshot {
+  background: #e5e5e5;
+  color: #333;
+}
+
+.result-button.screenshot:hover {
+  background: #d5d5d5;
+}
+
+.upload-section {
+  padding: 16px;
+  border: 2px dashed #e5e5e5;
+  border-radius: 8px;
+  text-align: center;
+  background: #F7F6F3;
+}
+
+.upload-section input[type="file"] {
+  display: none;
+}
+
+.upload-label {
+  display: inline-block;
+  padding: 8px 24px;
+  background: #e5e5e5;
+  color: #333;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.upload-label:hover {
+  background: #d5d5d5;
+}
+
+.upload-status {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #16a34a;
+}

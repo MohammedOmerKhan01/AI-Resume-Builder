@@ -1,0 +1,118 @@
+.preview-page {
+  min-height: 100vh;
+  background: #F7F6F3;
+}
+
+.preview-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+.preview-header {
+  margin-bottom: 24px;
+}
+
+.export-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.export-btn {
+  flex: 1;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.print-btn {
+  background: #8B0000;
+  color: white;
+}
+
+.print-btn:hover {
+  background: #6d0000;
+}
+
+.copy-btn {
+  background: #e5e5e5;
+  color: #333;
+}
+
+.copy-btn:hover {
+  background: #d5d5d5;
+}
+
+.copy-btn.copied {
+  background: #16a34a;
+  color: white;
+}
+
+.export-warning {
+  margin-top: 16px;
+  padding: 16px;
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 8px;
+  color: #856404;
+  font-size: 14px;
+}
+
+.preview-content {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Hide UI elements in print mode */
+@media print {
+  .preview-page {
+    background: white !important;
+  }
+
+  .preview-header,
+  nav {
+    display: none !important;
+  }
+
+  .preview-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .preview-content {
+    box-shadow: none !important;
+    background: white !important;
+  }
+}
+
+.pdf-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  padding: 16px 24px;
+  background: #16a34a;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease;
+  z-index: 1000;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
