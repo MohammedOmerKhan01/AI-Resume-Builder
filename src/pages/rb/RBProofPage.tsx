@@ -27,101 +27,205 @@ function RBProofPage() {
     { num: 8, name: 'Ship', route: '08-ship' },
   ]
 
-  const allStepsComplete = steps.every(step => projectStore.hasArtifact(step.num))
-  const allLinksProvided = state.lovableLink && state.githubLink && state.deployLink
+  const allStepsComplete = projectStore.allStepsComplete()
+  const allTestsPassed = projectStore.allTestsPassed()
+  const allLinksProvided = projectStore.allLinksProvided()
+  const isShipped = projectStore.isShipped()
 
   const handleCopySubmission = async () => {
-    const submission = `AI Resume Builder - Project 3 Submission
+    const submission = `------------------------------------------
+AI Resume Builder — Final Submission
 
-Lovable Link: ${state.lovableLink}
-GitHub Link: ${state.githubLink}
-Deploy Link: ${state.deployLink}
+Lovable Project: ${state.lovableLink}
+GitHub Repository: ${state.githubLink}
+Live Deployment: ${state.deployLink}
 
-All 8 steps completed with artifacts uploaded.`
+Core Capabilities:
+- Structured resume builder
+- Deterministic ATS scoring
+- Template switching
+- PDF export with clean formatting
+- Persistence + validation checklist
+------------------------------------------`
 
     await navigator.clipboard.writeText(submission)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
   }
 
+  const getStatusBadge = () => {
+    if (isShipped) {
+      return <div className="status-badge shipped">Shipped</div>
+    }
+    return <div className="status-badge in-progress">In Progress</div>
+  }
+
   return (
     <div className="proof-page">
       <div className="proof-container">
         <div className="proof-header">
-          <h1>AI Resume Builder — Proof</h1>
-          <p>Track your progress and submit your final project</p>
+          <div className="header-top">
+            <h1>AI Resume Builder — Proof</h1>
+            {getStatusBadge()}
+          </div>
+          <p>Complete all steps, pass all tests, and provide deployment links</p>
         </div>
 
-        <div className="steps-grid">
-          {steps.map(step => {
-            const isComplete = projectStore.hasArtifact(step.num)
-            return (
-              <Link 
-                key={step.num} 
-                to={`/rb/${step.route}`}
-                style={{ textDecoration: 'none' }}
-              >
-                <div className={`step-card ${isComplete ? 'complete' : ''}`}>
-                  <div className="step-number">Step {step.num}</div>
-                  <div className="step-title">{step.name}</div>
-                  <div className={`step-status ${isComplete ? 'complete' : 'pending'}`}>
-                    {isComplete ? '✓ Complete' : 'Pending'}
+        {isShipped && (
+          <div className="shipped-message">
+            Project 3 Shipped Successfully.
+          </div>
+        )}
+
+        {/* Step Completion Overview */}
+        <div className="section">
+          <h2>Step Completion Overview</h2>
+          <div className="steps-grid">
+            {steps.map(step => {
+              const isComplete = projectStore.hasArtifact(step.num)
+              return (
+                <Link 
+                  key={step.num} 
+                  to={`/rb/${step.route}`}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className={`step-card ${isComplete ? 'complete' : ''}`}>
+                    <div className="step-number">Step {step.num}</div>
+                    <div className="step-title">{step.name}</div>
+                    <div className={`step-status ${isComplete ? 'complete' : 'pending'}`}>
+                      {isComplete ? '✓ Complete' : 'Pending'}
+                    </div>
                   </div>
-                </div>
-              </Link>
-            )
-          })}
+                </Link>
+              )
+            })}
+          </div>
+          <div className="completion-summary">
+            {allStepsComplete ? (
+              <span className="summary-complete">✓ All 8 steps completed</span>
+            ) : (
+              <span className="summary-incomplete">
+                {steps.filter(s => projectStore.hasArtifact(s.num)).length}/8 steps completed
+              </span>
+            )}
+          </div>
         </div>
 
-        <div className="submission-section">
-          <h2>Final Submission</h2>
+        {/* Test Checklist */}
+        <div className="section">
+          <h2>Test Checklist (Required)</h2>
+          <div className="test-checklist">
+            {state.testResults.map((test) => (
+              <div key={test.id} className="test-item">
+                <label className="test-label">
+                  <input
+                    type="checkbox"
+                    checked={test.passed}
+                    onChange={() => projectStore.toggleTestResult(test.id)}
+                  />
+                  <span className={test.passed ? 'test-passed' : ''}>{test.name}</span>
+                </label>
+              </div>
+            ))}
+          </div>
+          <div className="completion-summary">
+            {allTestsPassed ? (
+              <span className="summary-complete">✓ All 10 tests passed</span>
+            ) : (
+              <span className="summary-incomplete">
+                {state.testResults.filter(t => t.passed).length}/10 tests passed
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Artifact Collection */}
+        <div className="section">
+          <h2>Artifact Collection (Required to mark Shipped)</h2>
           
           <div className="input-group">
-            <label htmlFor="lovable-link">Lovable Project Link</label>
+            <label htmlFor="lovable-link">
+              Lovable Project Link <span className="required">*</span>
+            </label>
             <input
               id="lovable-link"
               type="url"
               placeholder="https://lovable.dev/projects/..."
               value={state.lovableLink}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => projectStore.setLovableLink(e.target.value)}
+              className={state.lovableLink && !projectStore.isShipped() ? 'valid' : ''}
             />
+            {state.lovableLink && !isValidUrl(state.lovableLink) && (
+              <span className="validation-error">Please enter a valid URL</span>
+            )}
           </div>
 
           <div className="input-group">
-            <label htmlFor="github-link">GitHub Repository Link</label>
+            <label htmlFor="github-link">
+              GitHub Repository Link <span className="required">*</span>
+            </label>
             <input
               id="github-link"
               type="url"
               placeholder="https://github.com/username/repo"
               value={state.githubLink}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => projectStore.setGithubLink(e.target.value)}
+              className={state.githubLink && !projectStore.isShipped() ? 'valid' : ''}
             />
+            {state.githubLink && !isValidUrl(state.githubLink) && (
+              <span className="validation-error">Please enter a valid URL</span>
+            )}
           </div>
 
           <div className="input-group">
-            <label htmlFor="deploy-link">Deployed Application Link</label>
+            <label htmlFor="deploy-link">
+              Deployed URL <span className="required">*</span>
+            </label>
             <input
               id="deploy-link"
               type="url"
               placeholder="https://your-app.vercel.app"
               value={state.deployLink}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => projectStore.setDeployLink(e.target.value)}
+              className={state.deployLink && !projectStore.isShipped() ? 'valid' : ''}
             />
+            {state.deployLink && !isValidUrl(state.deployLink) && (
+              <span className="validation-error">Please enter a valid URL</span>
+            )}
           </div>
 
+          <div className="completion-summary">
+            {allLinksProvided ? (
+              <span className="summary-complete">✓ All 3 links provided</span>
+            ) : (
+              <span className="summary-incomplete">
+                {[state.lovableLink, state.githubLink, state.deployLink].filter(l => l && isValidUrl(l)).length}/3 links provided
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Final Submission */}
+        <div className="section">
+          <h2>Final Submission</h2>
+          
           <button
             className={`copy-submission-button ${copied ? 'copied' : ''}`}
             onClick={handleCopySubmission}
-            disabled={!allStepsComplete || !allLinksProvided}
+            disabled={!isShipped}
           >
             {copied ? '✓ Copied to Clipboard!' : 'Copy Final Submission'}
           </button>
 
-          {(!allStepsComplete || !allLinksProvided) && (
-            <p style={{ marginTop: '16px', fontSize: '14px', color: '#888', textAlign: 'center' }}>
-              {!allStepsComplete && 'Complete all 8 steps and upload artifacts. '}
-              {!allLinksProvided && 'Fill in all project links.'}
-            </p>
+          {!isShipped && (
+            <div className="requirements-list">
+              <p className="requirements-title">Requirements to ship:</p>
+              <ul>
+                {!allStepsComplete && <li>✗ Complete all 8 steps with artifacts</li>}
+                {!allTestsPassed && <li>✗ Pass all 10 checklist tests</li>}
+                {!allLinksProvided && <li>✗ Provide all 3 deployment links</li>}
+              </ul>
+            </div>
           )}
         </div>
 
@@ -131,6 +235,15 @@ All 8 steps completed with artifacts uploaded.`
       </div>
     </div>
   )
+}
+
+function isValidUrl(url: string): boolean {
+  try {
+    new URL(url)
+    return true
+  } catch {
+    return false
+  }
 }
 
 export default RBProofPage
